@@ -1,7 +1,10 @@
+import LoginForm from "../Components/LoginForm";
+
 function Login() {
     return (
         <div>
-            <p>login</p>
+            <LoginForm />
+            <p>Don't Have an Account? Click here to create one</p>
         </div>
     )
 }
