@@ -7,3 +7,5 @@ task1 = Task.create(description: "walk dog", xp_amount: 15)
 task2 = Task.create(description: "finish project", xp_amount: 100)
 
 puts "creating notes..."
+
+puts "creating categories..."
