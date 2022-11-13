@@ -5,7 +5,7 @@ import React, { useEffect } from 'react'
 import { Routes, Route } from "react-router-dom";
 
 import { useRecoilState } from 'recoil'
-import { currentUserState } from './atoms'
+import { userState } from './atoms'
 
 import NavBar from "./Components/NavBar";
 import Home from "./Page/Home"
@@ -18,16 +18,15 @@ import Logout from "./Page/Logout"
 
 function App() {
 
-  const [currentUser, setCurrentUser] = useRecoilState(currentUserState)
+  const [user, setUser] = useRecoilState(userState)
 
   useEffect(() => {
     fetch('/me').then((response) => {
       if (response.ok) {
-        response.json().then((user) => setCurrentUser(user))
+        response.json().then((currentUser) => setUser(currentUser))
       }
     });
   }, []);
-
   return (
     <div className="App">
       <NavBar />

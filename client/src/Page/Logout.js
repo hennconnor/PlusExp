@@ -1,9 +1,9 @@
 import { useResetRecoilState } from "recoil"
-import { currentUserState } from "../atoms"
+import { userState } from "../atoms"
 
 function Logout() {
 
-    const resetUser = useResetRecoilState(currentUserState)
+    const resetUser = useResetRecoilState(userState)
 
     function handleLogout() {
         fetch('/logout', {

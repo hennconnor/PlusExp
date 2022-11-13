@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { useRecoilState } from 'recoil'
 
-import { currentUserState } from '../atoms'
+import { userState } from '../atoms'
 
 function LoginForm() {
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [currentUser, setCurrentUser] = useRecoilState(currentUserState)
+    const [user, setUser] = useRecoilState(userState)
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -20,8 +20,9 @@ function LoginForm() {
             body: JSON.stringify({ username, password }),
         })
             .then((r) => r.json())
-            .then((loggedInUser) => setCurrentUser(loggedInUser))
+            .then((loggedInUser) => setUser(loggedInUser))
     }
+    console.log(user);
     return (
         <div>
             <h1>Login!</h1>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_13_042746) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_13_051712) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -42,7 +42,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_13_042746) do
     t.string "password_digest"
     t.string "name"
     t.string "profile_pic"
-    t.integer "user_id"
     t.integer "friend_id"
     t.integer "xp"
     t.integer "level"

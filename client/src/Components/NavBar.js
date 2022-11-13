@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom"
 import { useRecoilValue } from "recoil"
-import { currentUserState } from "../atoms"
+import { userState } from "../atoms"
 
 function NavBar() {
-    const user = useRecoilValue(currentUserState)
+    const user = useRecoilValue(userState)
     return (
         <div>
             <Link to="/">Home</Link>
