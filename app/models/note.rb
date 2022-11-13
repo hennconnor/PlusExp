@@ -1,6 +1,5 @@
 class Note < ApplicationRecord
-  belongs_to :User
-  belongs_to :Task
+  belongs_to :task
 
   validates :description, presence: true
 end

@@ -7,6 +7,8 @@ class CreateUsers < ActiveRecord::Migration[7.0]
       t.string :profile_pic
       t.integer :user_id
       t.integer :friend_id
+      t.integer :xp
+      t.integer :level
 
       t.timestamps
     end

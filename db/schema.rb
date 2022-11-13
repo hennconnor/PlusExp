@@ -10,23 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_07_170724) do
-  create_table "notes", force: :cascade do |t|
-    t.string "description"
-    t.integer "User_id", null: false
-    t.integer "Task_id", null: false
+ActiveRecord::Schema[7.0].define(version: 2022_11_13_042746) do
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["Task_id"], name: "index_notes_on_Task_id"
-    t.index ["User_id"], name: "index_notes_on_User_id"
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.string "text"
+    t.integer "task_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["task_id"], name: "index_notes_on_task_id"
   end
 
   create_table "tasks", force: :cascade do |t|
     t.string "description"
     t.integer "xp_amount"
-    t.string "category"
+    t.integer "user_id", null: false
+    t.integer "category_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "ranking"
+    t.index ["category_id"], name: "index_tasks_on_category_id"
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -36,10 +44,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_07_170724) do
     t.string "profile_pic"
     t.integer "user_id"
     t.integer "friend_id"
+    t.integer "xp"
+    t.integer "level"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "notes", "Tasks"
-  add_foreign_key "notes", "Users"
+  add_foreign_key "notes", "tasks"
+  add_foreign_key "tasks", "categories"
+  add_foreign_key "tasks", "users"
 end
