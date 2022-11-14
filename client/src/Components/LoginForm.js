@@ -22,7 +22,6 @@ function LoginForm() {
             .then((r) => r.json())
             .then((loggedInUser) => setUser(loggedInUser))
     }
-    console.log(user);
     return (
         <div>
             <h1>Login!</h1>
