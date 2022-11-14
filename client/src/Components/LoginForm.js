@@ -29,7 +29,7 @@ function LoginForm() {
                 <label>Username:</label>
                 <input placeholder="Type in Username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
                 <label>Password:</label>
-                <input placeholder="Type in Password" value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <input placeholder="Type in Password" value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
                 <button onClick={handleSubmit}>Sign in</button>
             </form>
         </div>

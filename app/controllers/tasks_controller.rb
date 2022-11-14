@@ -1,6 +1,6 @@
 class TasksController < ApplicationController
 
-    before_action :find_task, only: [:show, :delete, :update]
+    before_action :find_task, only: [:show, :destroy, :update]
 
     def index 
         render json: Task.all
@@ -17,7 +17,7 @@ class TasksController < ApplicationController
         render json: task, status: :created
     end
 
-    def delete
+    def destroy
         @task.destroy
         head :no_content
     end

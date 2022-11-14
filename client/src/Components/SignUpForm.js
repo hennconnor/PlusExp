@@ -29,7 +29,7 @@ function SignUpForm() {
                 <label>Username</label>
                 <input placeholder={"Type in Username"} value={username} onChange={(e) => setUsername(e.target.value)}></input>
                 <label>Password</label>
-                <input placeholder={"Type in Password"} value={password} onChange={(e) => setPassword(e.target.value)}></input>
+                <input placeholder={"Type in Password"} value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
                 <label>Display Name</label>
                 <input placeholder={"Type in Name"} value={name} onChange={(e) => setName(e.target.value)}></input>
                 <button onClick={handleSubmit}>Create Account</button>
