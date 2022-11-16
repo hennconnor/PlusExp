@@ -5,6 +5,7 @@ function LevelsComponent() {
 
     const [user, setUser] = useRecoilState(userState)
 
+
     function levelUp() {
         const currentUser = { ...user }
         if (currentUser.xp >= 100) {
@@ -28,6 +29,7 @@ function LevelsComponent() {
     return (
         <div>
             <h2> Name: {user.name}</h2>
+            <img src={user.avatar} />
             <h2>Level: {user.level}</h2>
             <h2>Exp: {user.xp}/100</h2>
         </div>

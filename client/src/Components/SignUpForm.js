@@ -7,6 +7,7 @@ function SignUpForm() {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const [name, setName] = useState('')
+    const [imageFile, setImageFile] = useState(null)
     const [user, setUser] = useRecoilState(userState)
 
     function handleSubmit(e) {
@@ -32,6 +33,8 @@ function SignUpForm() {
                 <input placeholder={"Type in Password"} value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
                 <label>Display Name</label>
                 <input placeholder={"Type in Name"} value={name} onChange={(e) => setName(e.target.value)}></input>
+                <label>Image</label>
+                <input type="file" name="image" id="image" onChange={(e) => setImageFile(e.target.files[0])}></input>
                 <button onClick={handleSubmit}>Create Account</button>
             </form>
         </div>

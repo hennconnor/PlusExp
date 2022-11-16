@@ -18,9 +18,11 @@ function LoginForm() {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({ username, password }),
-        })
-            .then((r) => r.json())
-            .then((loggedInUser) => setUser(loggedInUser))
+        }).then((response) => {
+            if (response.ok) {
+                response.json().then((currentUser) => setUser(currentUser))
+            }
+        });
     }
     return (
         <div>
