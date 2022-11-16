@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   
   def show
     user = User.find_by(id: session[:user_id])
-    render json: user
+    render json: user, include: ['tasks', 'tasks.category']
   end
   
   def create 
@@ -11,9 +11,9 @@ class UsersController < ApplicationController
   end
   
   def update
-    user = User.find(params[:id])
+    user = User.find_by(id: session[:user_id])
     user.update!(user_params)
-    render json: user
+    render json: user, include: ['tasks', 'tasks.category']
   end
 
   def delete
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.permit(:username, :password, :name, :profile_pic)
+    params.permit(:id, :username, :password, :name, :profile_pic, :xp, :level)
   end
   
   end

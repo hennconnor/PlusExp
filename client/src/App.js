@@ -9,6 +9,7 @@ import Home from "./Page/Home"
 import Login from "./Page/Login"
 import TaskListPage from "./Page/TaskListPage"
 import Logout from "./Page/Logout"
+import LevelsPage from './Page/LevelsPage';
 
 
 
@@ -24,8 +25,6 @@ function App() {
     });
   }, []);
 
-
-
   return (
     <div className="App">
       <NavBar />
@@ -34,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/tasklist" element={<TaskListPage />} />
+        <Route path="/levelspage" element={<LevelsPage />} />
       </Routes>
 
     </div>

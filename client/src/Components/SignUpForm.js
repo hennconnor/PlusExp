@@ -17,7 +17,7 @@ function SignUpForm() {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password, name }),
+            body: JSON.stringify({ username, password, name, level: 1, xp: 0 }),
         })
             .then((r) => r.json())
             .then((newUser) => setUser(newUser))

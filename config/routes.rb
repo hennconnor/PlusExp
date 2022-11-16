@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   resources :notes
   resources :tasks
   resources :users
+  resources :categories
 
   post '/login', to: 'sessions#create'
   get '/me', to: 'users#show'

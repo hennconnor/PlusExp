@@ -10,6 +10,6 @@ class User < ApplicationRecord
         presence: true,
         uniqueness: true
     validates :password,
-        presence: true
+        presence: true, on: :create
 
 end

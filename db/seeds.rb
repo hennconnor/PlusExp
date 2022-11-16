@@ -1,6 +1,6 @@
 puts "creating users..."
-user1 = User.create!(username: "username1", password: "abc", name: "Connor")
-user2 = User.create!(username: "username2", password: "abc", name: "Matt")
+user1 = User.create!(username: "username1", password: "abc", name: "Connor", level: 1, xp: 0)
+user2 = User.create!(username: "username2", password: "abc", name: "Matt", level: 1, xp: 0)
 
 puts "creating categories..."
 category1 = Category.create!(name: "Fitness")

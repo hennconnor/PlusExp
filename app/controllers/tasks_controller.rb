@@ -36,6 +36,6 @@ class TasksController < ApplicationController
         end
 
         def task_params
-            params.permit(:description, :xp_amount, :user_id, :category_id, :ranking)
+            params.permit(:id, :description, :xp_amount, :user_id, :category_id, :ranking, :category, category_attributes: [:id, :name])
         end
 end

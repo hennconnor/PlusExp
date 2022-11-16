@@ -22,11 +22,27 @@ function TaskItem({ description, xp_amount, task }) {
         setUser(currentUser);
     }
 
+    function handleComplete() {
+        const newXP = (user.xp + xp_amount)
+        fetch(`/users/${user.id}`, {
+            method: "PATCH",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                xp: newXP
+            })
+        })
+            .then(r => r.json())
+            .then(updatedUser => setUser({ ...user, xp: updatedUser.xp }))
+
+    }
+
     return (
         <div>
             <h3>{description}</h3>
-            <p>xp amount: {xp_amount}</p>
+            <p>XP Amount: {xp_amount}</p>
+            <p>Category: {task.category.name}</p>
             <button onClick={handleDelete}>Remove Task</button>
+            <button onClick={handleComplete}>Complete Task</button>
         </div>
     )
 }
