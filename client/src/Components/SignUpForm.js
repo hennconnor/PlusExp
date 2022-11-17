@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useRecoilState } from 'recoil'
+import { useRecoilState } from 'recoil';
 
 import { userState } from '../atoms'
 
