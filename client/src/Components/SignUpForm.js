@@ -34,7 +34,7 @@ function SignUpForm() {
     const [user, setUser] = useRecoilState(userState)
 
 
-    async function handleSubmit(e) {
+    function handleSubmit(e) {
 
         e.preventDefault()
         const data = new FormData()
@@ -44,22 +44,25 @@ function SignUpForm() {
         fetch("https://api.cloudinary.com/v1_1/dzp4uotrn/image/upload", {
             method: "post",
             body: data
-        })
-            .then(response => response.json())
-            .then((returnImage) => setImage_url(returnImage.url))
-            .then(() => signUp())
-    }
+        }).then(response => {
+            if (response.ok) {
+                response.json().then((returnImage) => signUp(returnImage))
 
-    function signUp() {
-        fetch("/signup", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: image_url }),
+            }
+
         })
-            .then((r) => r.json())
-            .then((newUser) => setUser(newUser))
+
+        function signUp(returnImage) {
+            fetch("/signup", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url }),
+            })
+                .then((r) => r.json())
+                .then((newUser) => setUser(newUser))
+        }
     }
     return (
         <div>
