@@ -7,7 +7,9 @@ function LevelsComponent() {
 
 
     function levelUp() {
+
         const currentUser = { ...user }
+        console.log(currentUser.xp)
         if (currentUser.xp >= 100) {
             let currentXp = currentUser.xp - 100
             let currentLevel = currentUser.level + 1

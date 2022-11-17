@@ -1,9 +1,13 @@
 import { userState } from '../atoms';
 import { useRecoilState } from 'recoil';
+import { useState } from 'react';
+import EditTaskForm from './EditTaskForm';
 
 function TaskItem({ description, xp_amount, task }) {
 
     const [user, setUser] = useRecoilState(userState)
+
+    const [click, setClick] = useState(true)
 
     function handleDelete() {
         fetch(`/tasks/${task.id}`, {
@@ -36,6 +40,11 @@ function TaskItem({ description, xp_amount, task }) {
 
     }
 
+    function handleClick() {
+        setClick(!click)
+    }
+
+
     return (
         <div>
             <h3>{description}</h3>
@@ -43,6 +52,7 @@ function TaskItem({ description, xp_amount, task }) {
             <p>Category: {task.category.name}</p>
             <button onClick={handleDelete}>Remove Task</button>
             <button onClick={handleComplete}>Complete Task</button>
+            {click ? <button onClick={handleClick}>Edit Task</button> : <EditTaskForm task={task} onClick={handleClick} />}
         </div>
     )
 }

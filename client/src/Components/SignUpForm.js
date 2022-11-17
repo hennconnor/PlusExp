@@ -10,6 +10,7 @@ function SignUpForm() {
     const [imageFile, setImageFile] = useState(null)
     const [user, setUser] = useRecoilState(userState)
 
+    console.log(imageFile);
     function handleSubmit(e) {
         e.preventDefault()
 

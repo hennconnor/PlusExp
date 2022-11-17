@@ -8,11 +8,11 @@ function TaskListComponent() {
     const [user, setUser] = useRecoilState(userState)
     const tasks = user.tasks
 
-    function sortTasks() {
-        const taskCopy = [...user.tasks]
-        const sortedTasks = taskCopy.sort((taskA, taskB) => (taskA.ranking - taskB.ranking))
-        return sortedTasks;
-    }
+    // function sortTasks() {
+    //     const taskCopy = [...user.tasks]
+    //     const sortedTasks = taskCopy.sort((taskA, taskB) => (taskA.ranking - taskB.ranking))
+    //     return sortedTasks;
+    // }
 
 
 
