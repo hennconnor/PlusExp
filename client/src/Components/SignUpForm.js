@@ -51,18 +51,22 @@ function SignUpForm() {
             }
 
         })
+    }
 
-        function signUp(returnImage) {
-            fetch("/signup", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url }),
-            })
-                .then((r) => r.json())
-                .then((newUser) => setUser(newUser))
+    function signUp(returnImage) {
+        fetch("/signup", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url }),
+        }).then(response => {
+            if (response.ok) {
+                response.json().then((currentUser) => setUser(currentUser))
+
+            }
         }
+        )
     }
     return (
         <div>
