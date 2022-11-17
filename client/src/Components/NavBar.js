@@ -7,10 +7,10 @@ function NavBar() {
     const user = useRecoilValue(userState)
     return (
         <NavBarDiv>
-            <Link to="/">Home</Link>
-            {user ? <Link to="/logout">Logout</Link> : <Link to="/login">Login/CreateAccount</Link>}
-            <Link to="/tasklist">Task List</Link>
-            <Link to="/levelspage">Levels Page</Link>
+            <NavBarLink to="/">Home</NavBarLink>
+            {user ? <NavBarLink to="/logout">Logout</NavBarLink> : <NavBarLink to="/login">Login/CreateAccount</NavBarLink>}
+            <NavBarLink to="/tasklist">Task List</NavBarLink>
+            <NavBarLink to="/levelspage">Levels Page</NavBarLink>
         </NavBarDiv>
 
     )
@@ -18,10 +18,20 @@ function NavBar() {
 
 let NavBarDiv = styled.div`
 font-size: 24px;
-margin: 0;
-color: #F3F7F0;
+background-color: #1D265E;
+padding: 10px;
 justify-content: space-between;
+height: 50px;
+width: 100%;
+display: flex;
+flex-direction: row;
+`
 
+let NavBarLink = styled(Link)`
+color: white;
+text-decoration: none;
+margin: 40px;
+&:hover{ text-decoration: underline}
 `
 
 export default NavBar;

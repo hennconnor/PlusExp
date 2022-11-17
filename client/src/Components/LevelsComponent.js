@@ -4,7 +4,7 @@ import { useRecoilState } from 'recoil'
 function LevelsComponent() {
 
     const [user, setUser] = useRecoilState(userState)
-
+    console.log(user);
 
     function levelUp() {
 
@@ -30,7 +30,7 @@ function LevelsComponent() {
     return (
         <div>
             <h2> Name: {user.name}</h2>
-            <img src={user.avatar} />
+            <img src={user.profile_pic} alt='user' height="300px" width="300px" />
             <h2>Level: {user.level}</h2>
             <h2>Exp: {user.xp}/100</h2>
         </div>

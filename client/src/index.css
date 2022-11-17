@@ -13,3 +13,30 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+button {
+  background-color: #1D265E;
+  color: #F3F7F0;
+
+}
+
+div {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#homePage {
+  text-align: center;
+  justify-content: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  margin-right: 150px;
+  margin-left: 80px;
+  font-size: 18px;
+}
+
+#logoutbtn {
+  padding: 15px 32px;
+  font-size: 20px;
+}

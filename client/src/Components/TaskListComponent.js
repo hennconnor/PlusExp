@@ -41,7 +41,7 @@ function TaskListComponent() {
         <DragDropContext onDragEnd={handleOnDragEnd}>
             <Droppable droppableId="Tasks">
                 {(provided) => (
-                    <div {...provided.droppableProps} ref={provided.innerRef}>
+                    <div class='tasklistDiv' {...provided.droppableProps} ref={provided.innerRef}>
                         {tasks.map((task, index) => {
                             const id = task.id
                             const textId = id.toString()

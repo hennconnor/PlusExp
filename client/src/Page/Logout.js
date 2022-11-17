@@ -14,8 +14,8 @@ function Logout() {
 
     return (
         <div>
-            < p>Welcome</p>
-            <button onClick={handleLogout}>Log out</button>
+            <p>Thanks for Stopping by</p>
+            <button id="logoutbtn" onClick={handleLogout}>Log out</button>
         </div>
     )
 }

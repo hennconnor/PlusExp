@@ -2,6 +2,7 @@ import { userState } from '../atoms';
 import { useRecoilState } from 'recoil';
 import { useState } from 'react';
 import EditTaskForm from './EditTaskForm';
+import styled from '@emotion/styled';
 
 function TaskItem({ description, xp_amount, task }) {
 
@@ -56,5 +57,9 @@ function TaskItem({ description, xp_amount, task }) {
         </div>
     )
 }
+
+const TaskItemDiv = styled.div`
+background-color: red;
+`
 
 export default TaskItem;

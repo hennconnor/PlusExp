@@ -6,7 +6,7 @@ import styled from '@emotion/styled'
 function CreateTaskForm() {
     const [description, setDescription] = useState('')
     const [xp_amount, setXpAmount] = useState(0);
-    const [categoryName, setCategoryName] = useState('');
+    const [categoryName, setCategoryName] = useState('Fitness');
 
     const [categoryList, setCategoryList] = useState([])
     const [user, setUser] = useRecoilState(userState);
@@ -57,7 +57,7 @@ function CreateTaskForm() {
 
     return (
         <CreateFormDiv>
-            <p>Add Task</p>
+            <h3>Add Task</h3>
             <form onSubmit={handleSubmit}>
                 <label>Task Description:</label>
                 <input value={description} placeholder="Type in Task Description" onChange={(e) => setDescription(e.target.value)}></input>
