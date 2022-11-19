@@ -1,6 +1,6 @@
 import { userState } from '../atoms';
 import { useRecoilState } from 'recoil';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import EditTaskForm from './EditTaskForm';
 import styled from '@emotion/styled';
 
@@ -29,6 +29,7 @@ function TaskItem({ description, xp_amount, task }) {
 
     function handleComplete() {
         const newXP = (user.xp + xp_amount)
+
         fetch(`/users/${user.id}`, {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json' },
@@ -37,7 +38,7 @@ function TaskItem({ description, xp_amount, task }) {
             })
         })
             .then(r => r.json())
-            .then(updatedUser => setUser({ ...user, xp: updatedUser.xp }))
+            .then(updatedUser => setUser(updatedUser))
 
     }
 

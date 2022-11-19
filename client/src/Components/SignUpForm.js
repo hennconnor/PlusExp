@@ -5,6 +5,7 @@ import { userState } from '../atoms';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from "@cloudinary/url-gen/actions/resize";
+import { Navigate, useNavigate } from 'react-router-dom'
 
 // const cloudinary = require('cloudinary').v2;
 
@@ -32,6 +33,8 @@ function SignUpForm() {
     const [imageFile, setImageFile] = useState(null)
     const [image_url, setImage_url] = useState('')
     const [user, setUser] = useRecoilState(userState)
+
+    const navigate = useNavigate();
 
 
     function handleSubmit(e) {
@@ -62,8 +65,8 @@ function SignUpForm() {
             body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url }),
         }).then(response => {
             if (response.ok) {
-                response.json().then((currentUser) => setUser(currentUser))
-
+                response.json()
+                    .then((currentUser) => setUser(currentUser))
             }
         }
         )

@@ -4,7 +4,6 @@ import { useRecoilState } from 'recoil'
 function LevelsComponent() {
 
     const [user, setUser] = useRecoilState(userState)
-    console.log(user);
 
     function levelUp() {
 
