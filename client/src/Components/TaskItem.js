@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import EditTaskForm from './EditTaskForm';
 import styled from '@emotion/styled';
 
+import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
+import { FaTimes } from 'react-icons/fa';
 function TaskItem({ description, xp_amount, task }) {
 
     const [user, setUser] = useRecoilState(userState)
@@ -52,9 +54,9 @@ function TaskItem({ description, xp_amount, task }) {
             <div>{description}</div>
             <p>XP Amount: {xp_amount}</p>
             <p>Category: {task.category.name}</p>
-            <button onClick={handleDelete}>Remove Task</button>
-            <button onClick={handleComplete}>Complete Task</button>
-            {click ? <button onClick={handleClick}>Edit Task</button> : <EditTaskForm task={task} onClick={handleClick} />}
+            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleDelete}>Remove Task <FaTimes /></button>
+            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleComplete}>Complete Task <AiOutlineCheck /></button>
+            {click ? <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleClick}>Edit Task <AiOutlineEdit /></button> : <EditTaskForm task={task} onClick={handleClick} />}
         </div>
     )
 }

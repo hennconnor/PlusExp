@@ -48,7 +48,7 @@ function TaskListComponent() {
                             return (
                                 <Draggable key={id} draggableId={textId} index={index}>
                                     {(provided) => (
-                                        < div {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
+                                        < div className='flex flex-col items-center justify-center' {...provided.draggableProps} {...provided.dragHandleProps} ref={provided.innerRef}>
                                             <TaskItem description={task.description} xp_amount={task.xp_amount} task={task} />
                                         </div>
                                     )

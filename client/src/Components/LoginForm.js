@@ -25,14 +25,14 @@ function LoginForm() {
         });
     }
     return (
-        <div>
+        <div className='flex flex-col justify-center items-center'>
             <h1>Login!</h1>
             <form>
                 <label>Username:</label>
-                <input placeholder="Type in Username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                <input className='border-2 border-black' placeholder="Type in Username" value={username} onChange={(e) => setUsername(e.target.value)}></input>
                 <label>Password:</label>
-                <input placeholder="Type in Password" value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
-                <button onClick={handleSubmit}>Sign in</button>
+                <input className='border-2 border-black' placeholder="Type in Password" value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                <button className='border-2 border-black' onClick={handleSubmit}>Sign in</button>
             </form>
         </div>
     )
