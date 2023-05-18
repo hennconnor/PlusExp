@@ -1,5 +1,5 @@
 puts "creating users..."
-user1 = User.create!(username: "username1", password: "abc", name: "Connor", level: 1, xp: 0, profile_pic: 'https://www.wwe.com/f/styles/gallery_img_l/public/2018/07/142_sHULK_00000000_0001a--8c8e42877ad5ed37e0410731295ee7ee.jpg')
+user1 = User.create!(username: "username1", password: "abc", name: "Connor", level: 1, xp: 0, profile_pic: 'https://cdn.vox-cdn.com/thumbor/lWOGzsPeAD6YzEVVNH001nrSqPM=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24458108/captain_pikachu.jpg')
 user2 = User.create!(username: "username2", password: "abc", name: "Matt", level: 1, xp: 0)
 
 puts "creating categories..."

@@ -1,4 +1,3 @@
-import './App.css';
 import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { useRecoilState } from "recoil"
@@ -25,7 +24,7 @@ function App() {
     });
   }, []);
   return (
-    <div className="App">
+    <div >
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />

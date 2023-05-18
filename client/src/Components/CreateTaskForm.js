@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { userState } from '../atoms';
-import styled from '@emotion/styled'
 
 function CreateTaskForm() {
     const [description, setDescription] = useState('')
@@ -56,7 +55,7 @@ function CreateTaskForm() {
 
 
     return (
-        <CreateFormDiv>
+        <div>
             <h3>Add Task</h3>
             <form onSubmit={handleSubmit}>
                 <label>Task Description:</label>
@@ -73,11 +72,8 @@ function CreateTaskForm() {
                 </select>
                 <button>Create New Task</button>
             </form>
-        </CreateFormDiv>
+        </div>
     )
 }
-
-let CreateFormDiv = styled.div`
-`
 
 export default CreateTaskForm;

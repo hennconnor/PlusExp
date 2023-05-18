@@ -13,9 +13,9 @@ function Logout() {
 
 
     return (
-        <div>
+        <div className='flex flex-col justify-center align-center bg-[#C3C7C4] my-2 justify-self-center'>
             <p>Thanks for Stopping by</p>
-            <button id="logoutbtn" onClick={handleLogout}>Log out</button>
+            <button className='' onClick={handleLogout}>Log out</button>
         </div>
     )
 }

@@ -48,8 +48,8 @@ function TaskItem({ description, xp_amount, task }) {
 
 
     return (
-        <div>
-            <h3>{description}</h3>
+        <div className='flex flex-col bg-[#C3C7C4] my-5 justify-self-center text-center max-w-[50%]'>
+            <div>{description}</div>
             <p>XP Amount: {xp_amount}</p>
             <p>Category: {task.category.name}</p>
             <button onClick={handleDelete}>Remove Task</button>
