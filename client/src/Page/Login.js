@@ -17,7 +17,6 @@ function Login() {
                     </div> :
                     <div>
                         <SignUpForm />
-                        <p onClick={handleClick}>Already have an Account? Click here to log in</p>
                     </div>}
             </div>
         </div>

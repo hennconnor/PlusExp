@@ -50,13 +50,13 @@ function TaskItem({ description, xp_amount, task }) {
 
 
     return (
-        <div className='flex flex-col bg-[#C3C7C4] my-5 justify-self-center text-center max-w-[50%]'>
+        <div className='flex flex-col bg-[#C3C7C4] my-5 content-center items-center min-w-[50%] border-2 border-black'>
             <div>{description}</div>
             <p>XP Amount: {xp_amount}</p>
             <p>Category: {task.category.name}</p>
-            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleDelete}>Remove Task <FaTimes /></button>
-            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleComplete}>Complete Task <AiOutlineCheck /></button>
-            {click ? <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2' onClick={handleClick}>Edit Task <AiOutlineEdit /></button> : <EditTaskForm task={task} onClick={handleClick} />}
+            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2 max-w-[50%]' onClick={handleDelete}>Remove Task <FaTimes /></button>
+            <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2 max-w-[50%]' onClick={handleComplete}>Complete Task <AiOutlineCheck /></button>
+            {click ? <button className='border-2 border-black flex flex-row justify-center items-center m-2 p-2 max-w-[50%]' onClick={handleClick}>Edit Task <AiOutlineEdit /></button> : <EditTaskForm task={task} onClick={handleClick} />}
         </div>
     )
 }
