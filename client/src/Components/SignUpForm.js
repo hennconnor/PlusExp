@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { useRecoilState } from 'recoil';
-import Axios from 'axios';
 import { userState } from '../atoms';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { Navigate, useNavigate } from 'react-router-dom'
+
+import { FaTimes } from 'react-icons/fa';
 
 // const cloudinary = require('cloudinary').v2;
 
@@ -24,7 +25,7 @@ import { Navigate, useNavigate } from 'react-router-dom'
 //     secure: true
 // });
 
-function SignUpForm() {
+function SignUpForm({ handleCreateClick }) {
 
 
     const [username, setUsername] = useState('')
@@ -72,18 +73,27 @@ function SignUpForm() {
         )
     }
     return (
-        <div>
-            <h1>Create An Account</h1>
-            <form>
-                <label>Username</label>
-                <input placeholder={"Type in Username"} value={username} onChange={(e) => setUsername(e.target.value)}></input>
-                <label>Password</label>
-                <input placeholder={"Type in Password"} value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
-                <label>Display Name</label>
-                <input placeholder={"Type in Name"} value={name} onChange={(e) => setName(e.target.value)}></input>
-                <label>Image</label>
-                <input type="file" name="image" id="image" onChange={(e) => setImageFile(e.target.files[0])}></input>
-                <button onClick={handleSubmit}>Create Account</button>
+        <div className='flex flex-col fixed justify-center content-center z-10 bg-white border-2 border-black max-w-[50%] rounded-md left-[50%] top-[50%] p-2 translate-x-[-50%] translate-y-[-50%]'>
+            <div className='flex flex-row justify-between my-1'>
+                <div></div>
+                <h1>Create An Account</h1>
+                <FaTimes onClick={handleCreateClick} className='cursor-pointer' />
+            </div>
+
+            <form className='flex flex-col justify-center items-center'>
+                <div className='flex flex-row justify-center items-center my-1'>
+                    <label>Username:</label>
+                    <input placeholder={"Type in Username"} className='border-2 border-black p-1 m-1' value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                    <label>Password:</label>
+                    <input placeholder={"Type in Password"} className='border-2 border-black p-1 m-1' value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                </div>
+                <div className='flex flex-row justify-center items-center my-1'>
+                    <label>Display Name:</label>
+                    <input placeholder={"Type in Name"} className='border-2 border-black p-1 m-1' value={name} onChange={(e) => setName(e.target.value)}></input>
+                    <label>Image:</label>
+                    <input className='cursor-pointer' type="file" name="image" id="image" onChange={(e) => setImageFile(e.target.files[0])}></input>
+                </div>
+                <button className='border-2 border-black p-2 my-1' onClick={handleSubmit}>Create Account</button>
             </form>
         </div>
     )

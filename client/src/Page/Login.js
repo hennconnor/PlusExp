@@ -1,7 +1,7 @@
 import LoginForm from "../Components/LoginForm";
 import SignUpForm from "../Components/SignUpForm"
 import React, { useState } from 'react';
-function Login() {
+function Login({ handleCreateClick }) {
     const [click, setClick] = useState(true);
 
     function handleClick() {
@@ -13,7 +13,7 @@ function Login() {
                 {click ?
                     <div className='flex flex-col justify-center items-center'>
                         <LoginForm />
-                        <p className='cursor-pointer' onClick={handleClick}>Don't Have an Account? Click here to create one</p>
+                        <p className='cursor-pointer' onClick={handleCreateClick}>Don't Have an Account? Click here to create one</p>
                     </div> :
                     <div>
                         <SignUpForm />
