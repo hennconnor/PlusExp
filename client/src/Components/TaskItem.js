@@ -30,6 +30,7 @@ function TaskItem({ description, xp_amount, task }) {
     }
 
     function handleComplete() {
+        console.log(user)
         const newXP = (user.xp + xp_amount)
 
         fetch(`/users/${user.id}`, {
@@ -40,8 +41,9 @@ function TaskItem({ description, xp_amount, task }) {
             })
         })
             .then(r => r.json())
-            .then(updatedUser => setUser(updatedUser))
-
+            .then(updatedUser => console.log(updatedUser))
+            .then((updatedUser) => setUser(updatedUser))
+            .then(() => handleDelete())
     }
 
     function handleClick() {

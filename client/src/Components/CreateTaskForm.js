@@ -2,7 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { userState } from '../atoms';
 
-function CreateTaskForm() {
+import { FaTimes } from 'react-icons/fa';
+
+function CreateTaskForm({ createModalClick }) {
     const [description, setDescription] = useState('')
     const [xp_amount, setXpAmount] = useState(0);
     const [categoryName, setCategoryName] = useState('Fitness');
@@ -51,12 +53,18 @@ function CreateTaskForm() {
         })
             .then(r => r.json())
             .then((newTask) => addTask(newTask))
+            .then(() => createModalClick())
     }
 
 
     return (
-        <div className='flex flex-col items-center justify-center bg-[#C3C7C4] p-5'>
-            <h3>Add Task</h3>
+        <div className='fixed z-10 flex flex-col justify-center items-center bg-white my-2 border-2 border-black rounded-md left-[50%] top-[50%] p-2 translate-x-[-50%] translate-y-[-50%]'>
+            <div className='flex flex-row justify-between'>
+                <div></div>
+                <h3>Add Task</h3>
+                <FaTimes className='cursor-pointer' onClick={createModalClick} />
+            </div>
+
             <form onSubmit={handleSubmit}>
                 <label>Task Description:</label>
                 <input className='m-1 p-1 border-2 border-black focus:outline-none focus:ring-1 focus:ring-black' value={description} placeholder="Type in Task Description" onChange={(e) => setDescription(e.target.value)}></input>

@@ -9,6 +9,7 @@ import Login from "./Page/Login"
 import TaskListPage from "./Page/TaskListPage";
 import LogoutModal from "./Components/LogoutModal";
 import SignUpForm from "./Components/SignUpForm";
+import CreateTaskForm from "./Components/CreateTaskForm";
 import LevelsPage from './Page/LevelsPage';
 
 
@@ -25,10 +26,16 @@ function App() {
     setCreateAcctModal(!createAcctModal);
   }
 
+  function createModalClick() {
+    setcreateTaskModal(!createTaskModal);
+  }
+
 
   const [user, setUser] = useRecoilState(userState);
+
   const [logoutModal, setLogoutModal] = useState(false);
   const [createAcctModal, setCreateAcctModal] = useState(false);
+  const [createTaskModal, setcreateTaskModal] = useState(false);
 
   useEffect(() => {
     fetch('/me').then((response) => {
@@ -43,7 +50,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login handleCreateClick={handleCreateClick} />} />
-        <Route path="/tasklist" element={<TaskListPage />} />
+        <Route path="/tasklist" element={<TaskListPage createModalClick={createModalClick} />} />
         <Route path="/levelspage" element={<LevelsPage />} />
       </Routes>
       {logoutModal && <LogoutModal handleLogoutClick={handleLogoutClick} />}
@@ -51,6 +58,9 @@ function App() {
 
       {createAcctModal && <SignUpForm handleCreateClick={handleCreateClick} />}
       {createAcctModal && <div className='fixed bg-black opacity-40 inset-0 z-0'></div>}
+
+      {createTaskModal && <CreateTaskForm createModalClick={createModalClick} />}
+      {createTaskModal && <div className='fixed bg-black opacity-40 inset-0 z-0'></div>}
     </div>
   );
 }
