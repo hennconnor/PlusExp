@@ -1,11 +1,11 @@
 import { userState } from '../atoms';
 import { useRecoilState } from 'recoil';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import EditTaskForm from './EditTaskForm';
-import styled from '@emotion/styled';
 
 import { AiOutlineEdit, AiOutlineCheck } from 'react-icons/ai';
 import { FaTimes } from 'react-icons/fa';
+
 function TaskItem({ description, xp_amount, task }) {
 
     const [user, setUser] = useRecoilState(userState)
@@ -60,9 +60,5 @@ function TaskItem({ description, xp_amount, task }) {
         </div>
     )
 }
-
-const TaskItemDiv = styled.div`
-background-color: red;
-`
 
 export default TaskItem;

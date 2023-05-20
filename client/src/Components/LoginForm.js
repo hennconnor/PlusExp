@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useRecoilState } from 'recoil'
-
 import { userState } from '../atoms'
 
+import { useNavigate } from "react-router-dom";
+
 function LoginForm() {
+
+    const navigate = useNavigate();
 
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
@@ -21,6 +24,7 @@ function LoginForm() {
         }).then((response) => {
             if (response.ok) {
                 response.json().then((currentUser) => setUser(currentUser))
+                    .then(() => navigate('/levelspage'))
             }
         });
     }

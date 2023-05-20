@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { userState } from '../atoms';
 import { Cloudinary } from "@cloudinary/url-gen";
 import { AdvancedImage } from '@cloudinary/react';
 import { fill } from "@cloudinary/url-gen/actions/resize";
-import { Navigate, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { FaTimes } from 'react-icons/fa';
 
@@ -68,6 +68,8 @@ function SignUpForm({ handleCreateClick }) {
             if (response.ok) {
                 response.json()
                     .then((currentUser) => setUser(currentUser))
+                    .then(() => navigate('/levelspage'))
+                    .then(() => handleCreateClick())
             }
         }
         )
