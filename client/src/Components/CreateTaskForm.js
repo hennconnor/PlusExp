@@ -59,11 +59,11 @@ function CreateTaskForm() {
             <h3>Add Task</h3>
             <form onSubmit={handleSubmit}>
                 <label>Task Description:</label>
-                <input className='border-2 border-black' value={description} placeholder="Type in Task Description" onChange={(e) => setDescription(e.target.value)}></input>
+                <input className='m-1 p-1 border-2 border-black focus:outline-none focus:ring-1 focus:ring-black' value={description} placeholder="Type in Task Description" onChange={(e) => setDescription(e.target.value)}></input>
                 <label>XP Amount: {'(1-100)'}</label>
-                <input className='border-2 border-black' value={xp_amount} placeholder="Type in Valid XP Amount" type="number" min='1' max='100' onChange={(e) => setXpAmount(e.target.value)}></input>
+                <input className='m-1 p-1 border-2 border-black focus:outline-none focus:ring-1 focus:ring-black' value={xp_amount} placeholder="Type in Valid XP Amount" type="number" min='1' max='100' onChange={(e) => setXpAmount(e.target.value)}></input>
                 <label>Category</label>
-                <select className='border-2 border-black' onChange={(e) => setCategoryName(e.target.value)}>
+                <select className='m-1 p-1 border-2 border-black focus:outline-none focus:ring-1 focus:ring-black' onChange={(e) => setCategoryName(e.target.value)}>
                     {categoryList.map((category) => {
                         return (<option key={category.id}>{category.name}</option>)
 

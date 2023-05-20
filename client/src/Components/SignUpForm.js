@@ -83,13 +83,13 @@ function SignUpForm({ handleCreateClick }) {
             <form className='flex flex-col justify-center items-center'>
                 <div className='flex flex-row justify-center items-center my-1'>
                     <label>Username:</label>
-                    <input placeholder={"Type in Username"} className='border-2 border-black p-1 m-1' value={username} onChange={(e) => setUsername(e.target.value)}></input>
+                    <input placeholder={"Type in Username"} className='border-2 border-black p-1 m-1 focus:outline-none focus:ring-1 focus:ring-black' value={username} onChange={(e) => setUsername(e.target.value)}></input>
                     <label>Password:</label>
-                    <input placeholder={"Type in Password"} className='border-2 border-black p-1 m-1' value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
+                    <input placeholder={"Type in Password"} className='border-2 border-black p-1 m-1 focus:outline-none focus:ring-1 focus:ring-black' value={password} type='password' onChange={(e) => setPassword(e.target.value)}></input>
                 </div>
                 <div className='flex flex-row justify-center items-center my-1'>
                     <label>Display Name:</label>
-                    <input placeholder={"Type in Name"} className='border-2 border-black p-1 m-1' value={name} onChange={(e) => setName(e.target.value)}></input>
+                    <input placeholder={"Type in Name"} className='border-2 border-black p-1 m-1 focus:outline-none focus:ring-1 focus:ring-black' value={name} onChange={(e) => setName(e.target.value)}></input>
                     <label>Image:</label>
                     <input className='cursor-pointer' type="file" name="image" id="image" onChange={(e) => setImageFile(e.target.files[0])}></input>
                 </div>
