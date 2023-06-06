@@ -13,7 +13,7 @@ function Login({ handleCreateClick }) {
                 {click ?
                     <div className='flex flex-col justify-center items-center'>
                         <LoginForm />
-                        <p className='cursor-pointer' onClick={handleCreateClick}>Don't Have an Account? Click here to create one</p>
+                        <p className='cursor-pointer my-2' onClick={handleCreateClick}>Don't Have an Account? Click here to create one</p>
                     </div> :
                     <div>
                         <SignUpForm />

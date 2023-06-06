@@ -10,8 +10,11 @@ function TaskListPage({ createModalClick }) {
 
     return (
         <div>
-            <h1>Task List</h1>
-            <div onClick={() => createModalClick()}>Add New Task <AiFillPlusCircle /></div>
+            <div className='flex flex-col items-center'>
+                <h1 className='text-4xl my-5'>Task List</h1>
+                <div className='flex flex-row justify-center items-center cursor-pointer' onClick={() => createModalClick()}>Add New Task <AiFillPlusCircle /></div>
+            </div>
+
             {user ? <div> <TaskListComponent /></div> : <p>Login to create or manage your Task List</p>}
         </div>
     )

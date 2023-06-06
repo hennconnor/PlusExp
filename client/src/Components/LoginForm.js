@@ -30,7 +30,7 @@ function LoginForm() {
     }
     return (
         <div className='flex flex-col justify-center items-center'>
-            <h1>Login!</h1>
+            <h1 className='text-xl my-2'>Login!</h1>
             <form>
                 <label>Username:</label>
                 <input className='p-0.5 border-2 border-black mx-1 focus:outline-none focus:ring-1 focus:ring-black' placeholder="Type in Username" value={username} onChange={(e) => setUsername(e.target.value)}></input>

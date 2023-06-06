@@ -12,25 +12,27 @@ function TaskItem({ description, xp_amount, task }) {
 
     const [click, setClick] = useState(true)
 
-    function handleDelete() {
+    function handleDelete(updatedUser) {
         fetch(`/tasks/${task.id}`, {
             method: "DELETE",
 
             headers: { 'Content-Type': 'application/json' }
         })
-            .then(() => onDelete(task))
+            .then(() => onDelete(task, updatedUser))
 
     }
 
-    function onDelete(deletedTask) {
+    function onDelete(deletedTask, updatedUser) {
         const currentUser = { ...user }
+        if (currentUser.xp !== updatedUser.xp) {
+            currentUser.xp = updatedUser.xp
+        }
         const updatedTasks = currentUser.tasks.filter((task) => task.id !== deletedTask.id);
         currentUser.tasks = updatedTasks
         setUser(currentUser);
     }
 
     function handleComplete() {
-        console.log(user)
         const newXP = (user.xp + xp_amount)
 
         fetch(`/users/${user.id}`, {
@@ -41,9 +43,8 @@ function TaskItem({ description, xp_amount, task }) {
             })
         })
             .then(r => r.json())
-            .then(updatedUser => console.log(updatedUser))
-            .then((updatedUser) => setUser(updatedUser))
-            .then(() => handleDelete())
+            .then(updatedUser => { handleDelete(updatedUser) })
+
     }
 
     function handleClick() {

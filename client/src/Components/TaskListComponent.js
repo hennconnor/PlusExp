@@ -1,5 +1,5 @@
 import { userState } from '../atoms';
-import { useRecoilValue, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
 import TaskItem from './TaskItem.js';
 import { DragDropContext, Droppable, Draggable } from "@hello-pangea/dnd";
 
