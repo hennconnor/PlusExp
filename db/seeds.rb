@@ -1,6 +1,6 @@
 puts "creating users..."
-user1 = User.create!(username: "username1", password: "abc", name: "Connor", level: 1, xp: 0, profile_pic: 'https://cdn.vox-cdn.com/thumbor/lWOGzsPeAD6YzEVVNH001nrSqPM=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24458108/captain_pikachu.jpg')
-user2 = User.create!(username: "username2", password: "abc", name: "Matt", level: 1, xp: 0)
+user1 = User.create!(username: "username1", password: "abc", name: "Connor", level: 1, xp: 0, profile_pic: 'https://cdn.vox-cdn.com/thumbor/lWOGzsPeAD6YzEVVNH001nrSqPM=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/24458108/captain_pikachu.jpg', tasks_completed:0)
+user2 = User.create!(username: "username2", password: "abc", name: "Matt", level: 1, xp: 0, tasks_completed: 0)
 
 puts "creating categories..."
 category1 = Category.create!(name: "Fitness")

@@ -27,6 +27,9 @@ function TaskItem({ description, xp_amount, task }) {
         if (currentUser.xp !== updatedUser.xp) {
             currentUser.xp = updatedUser.xp
         }
+        if (currentUser.tasks_completed !== updatedUser.tasks_completed) {
+            currentUser.tasks_completed = updatedUser.tasks_completed
+        }
         const updatedTasks = currentUser.tasks.filter((task) => task.id !== deletedTask.id);
         currentUser.tasks = updatedTasks
         setUser(currentUser);
@@ -34,12 +37,14 @@ function TaskItem({ description, xp_amount, task }) {
 
     function handleComplete() {
         const newXP = (user.xp + xp_amount)
+        const tasksCompleted = (user.tasks_completed + 1)
 
         fetch(`/users/${user.id}`, {
             method: "PATCH",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                xp: newXP
+                xp: newXP,
+                tasks_completed: tasksCompleted
             })
         })
             .then(r => r.json())

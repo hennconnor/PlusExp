@@ -1,29 +1,9 @@
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import { userState } from '../atoms';
-import { Cloudinary } from "@cloudinary/url-gen";
-import { AdvancedImage } from '@cloudinary/react';
-import { fill } from "@cloudinary/url-gen/actions/resize";
 import { useNavigate } from 'react-router-dom'
 
 import { FaTimes } from 'react-icons/fa';
-
-// const cloudinary = require('cloudinary').v2;
-
-// // Return "https" URLs by setting secure: true
-// cloudinary.config({
-//     secure: true
-// });
-
-// // Log the configuration
-// console.log(cloudinary.config());
-
-// cloudinary.config({
-//     cloud_name: 'dzp4uotrn',
-//     api_key: '764782659314951',
-//     api_secret: 'KCpIj5gNuEELSwinKwRhCKfoIBU',
-//     secure: true
-// });
 
 function SignUpForm({ handleCreateClick }) {
 
@@ -63,7 +43,7 @@ function SignUpForm({ handleCreateClick }) {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url }),
+            body: JSON.stringify({ username, password, name, level: 1, xp: 0, profile_pic: returnImage.url, tasks_completed: 0 }),
         }).then(response => {
             if (response.ok) {
                 response.json()
