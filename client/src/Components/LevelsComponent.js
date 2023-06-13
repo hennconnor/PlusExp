@@ -1,5 +1,6 @@
 import { userState } from '../atoms'
 import { useRecoilState } from 'recoil'
+import ProgressBar from './ProgressBar'
 
 function LevelsComponent() {
 
@@ -32,6 +33,7 @@ function LevelsComponent() {
             <img src={user.profile_pic} alt='user' height="300px" width="300px" />
             <h2>Level: {user.level}</h2>
             <h2>Exp: {user.xp}/100</h2>
+            <ProgressBar />
             <h2>Tasks Completed: {user.tasks_completed} </h2>
         </div>
     )
