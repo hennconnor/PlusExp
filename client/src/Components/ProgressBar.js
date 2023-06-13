@@ -1,6 +1,6 @@
-const ProgressBar = () => {
+const ProgressBar = ({ widthPercent }) => {
     return (
-        <div>Progress</div>
+        <progress className='w-full border-black border-2' value={widthPercent} max='100'></progress>
     )
 }
 

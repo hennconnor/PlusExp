@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+progress[value]::-webkit-progress-value {
+    background-color: #48f542;
+}
